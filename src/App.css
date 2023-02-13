@@ -19,3 +19,23 @@
   font-size: calc(100px + 2vmin);
   color: white;
 }
+
+button {
+  font-family: ac;
+  color: #31947f;
+  font-size: calc(10px + 2vmin);
+  padding: 10px 30px;
+  background-color: white;
+  border-radius: 30px;
+  border: 0px;
+  transition-duration: 0.3s;
+}
+
+button:hover {
+  background-color: #4aa487;
+  color: white;
+}
+
+button:active {
+  scale: 90%;
+}
