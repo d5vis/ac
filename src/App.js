@@ -2,6 +2,9 @@ import "./App.css";
 import Clock from "./Clock.js";
 
 function App() {
+  // TODO:
+  // add hourly music
+
   return (
     <div className="App">
       <header className="App-header">

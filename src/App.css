@@ -1,9 +1,16 @@
+@font-face {
+  font-family: ac;
+  src: url("../public/ac.otf");
+}
+
 .App {
   text-align: center;
+  font-family: ac;
+  background-image: url("../public/grass.png");
+  background-size: 100vw;
 }
 
 .App-header {
-  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
