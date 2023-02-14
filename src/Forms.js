@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
 import Ac from "./ac.json";
 
-export default function Button() {
-  // TODO:
-  // add volume controller
-  // add themes/game select
+export default function Forms() {
+  // TODO: background style based on game
+  const [game, setGame] = useState("wildWorld");
+
   const [playing, setPlaying] = useState(false);
   const [hours, setHours] = useState(new Date().getHours());
   const [track, setTrack] = useState(hours + 1);
-  const [game, setGame] = useState("wildWorld");
   const [audio, setAudio] = useState(new Audio());
+
+  const onChange = (event) => {
+    setGame(event.target.value);
+  };
+
+  // TODO: volume controller
   audio.volume = 0.5;
   audio.loop = true;
 
@@ -24,12 +29,12 @@ export default function Button() {
   // update track on hour change
   useEffect(() => {
     // TODO: update for game select
-    setTrack(Ac.games.wildWorld[hours - 1]);
-  }, [hours]);
+    setTrack(Ac.games[game][hours - 1]);
+  }, [hours, game]);
 
+  // update audio object
   useEffect(() => {
     // TODO: fade in fade out
-
     audio.src = track;
 
     if (playing) {
@@ -38,6 +43,7 @@ export default function Button() {
   }, [track]);
 
   function playAudio() {
+    console.log(track);
     if (!playing) {
       audio.play();
     } else {
@@ -46,7 +52,8 @@ export default function Button() {
     setPlaying(!playing);
   }
 
-  // for testing
+  // debug functions
+
   function changeTrack() {
     setTrack(Ac.games.wildWorld[1]);
     audio.src = track;
@@ -59,5 +66,22 @@ export default function Button() {
     console.log(hours);
   }
 
-  return <button onClick={playAudio}>start/stop session</button>;
+  function checkTrack() {
+    console.log(track);
+  }
+
+  return (
+    <div className="Forms">
+      <button onClick={playAudio}>start/stop session</button>
+      <select onChange={onChange}>
+        <option value="animalCrossing">animal crossing</option>
+        <option value="wildWorld" selected>
+          wild world
+        </option>
+        <option value="cityFolk">city folk</option>
+        <option value="newLeaf">new leaf</option>
+        <option value="newHorizons">new horizons</option>
+      </select>
+    </div>
+  );
 }
