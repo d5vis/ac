@@ -70,9 +70,11 @@ export default function Forms() {
     console.log(track);
   }
 
+  let stopStart = playing ? "stop" : "start";
+
   return (
     <div className="Forms">
-      <button onClick={playAudio}>start/stop session</button>
+      <button onClick={playAudio}>{stopStart}</button>
       <select onChange={onChange}>
         <option value="animalCrossing">animal crossing</option>
         <option value="wildWorld" selected>
