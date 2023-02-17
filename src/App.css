@@ -56,3 +56,16 @@ select:hover {
   background-color: #4aa487;
   color: white;
 }
+
+footer {
+  font-size: calc(8px + 2vmin);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

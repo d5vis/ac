@@ -29,7 +29,7 @@ export default function Forms() {
   // update track on hour change
   useEffect(() => {
     // TODO: update for game select
-    setTrack(Ac.games[game][hours - 1]);
+    setTrack(Ac.games[game][hours]);
   }, [hours, game]);
 
   // update audio object
